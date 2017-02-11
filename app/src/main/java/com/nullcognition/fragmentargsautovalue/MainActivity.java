@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     AutoTitle at = AutoTitle.create("at");
     AutoTitle at2 = AutoTitle.create("at2");
 
-    List<AutoTitle> atl = new ArrayList<>(1);
+    ArrayList<AutoTitle> atl = new ArrayList<>(1);
     atl.add(at2);
 
     Fragment fragment = new MyFragmentBuilder(at, atl).build();

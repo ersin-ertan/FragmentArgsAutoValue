@@ -10,6 +10,7 @@ import com.hannesdorfmann.fragmentargs.FragmentArgs;
 import com.hannesdorfmann.fragmentargs.annotation.Arg;
 import com.hannesdorfmann.fragmentargs.annotation.FragmentWithArgs;
 import com.hannesdorfmann.fragmentargs.bundler.CastedArrayListArgsBundler;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,8 +19,9 @@ import java.util.List;
 
 @FragmentWithArgs public class MyFragment extends Fragment {
 
-  @Arg AutoTitle autoTitle; // working
-  @Arg(bundler = CastedArrayListArgsBundler.class) List<AutoTitle> autoTitleList; // not working
+  @Arg AutoTitle autoTitle; // working, the bundler is not needed for parcelable and will work
+  // with explicit ArrayList conversions from List. Don't use List use the sub ArrayList
+  @Arg/*(bundler = CastedArrayListArgsBundler.class)*/ArrayList<AutoTitle> autoTitleList; // not working
 
   @Override public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
